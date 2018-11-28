@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+   <script type="text/javascript">
+   	
+   	    var mapkey= ["www.baidu.com","www.duba.com" ,"www.hao123.com" ,"www.2345.com" ,"daohang.qq.com",
+                                "123.sogou.com","hao.360.cn","www.uc123.com","www.114.com.cn","www.jiegeng.com","www.hao774.com"];
+        var key_string = "7777772e62616964752e636f6d,7777772e647562612e636f6d,7777772e68616f3132332e636f6d,7777772e323334352e636f6d,64616f68616e672e71712e636f6d,3132332e736f676f752e636f6d,68616f2e3336302e636e,7777772e75633132332e636f6d,7777772e3131342e636f6d2e636e,7777772e6a696567656e672e636f6d";
+        var Converter = (function() {
+                var $ = {};
+                $.toAscii = function(hex) {
+                    var temp = '';
+                    for (var i = 0; i < hex.length; i = i + 2) {
+                        temp += String.fromCharCode(parseInt(hex.slice(i, i + 2), 16));
+                    }
+                    return temp;
+                }
+                $.toHex = function(ascii) {
+                    var temp = '';
+                    for (var i = 0; i < ascii.length; i++) {
+                        temp += ascii.charCodeAt(i).toString(16);
+                    }
+                    return temp;
+                }
+                return $;
+            })();
+        for (var i = 0; i < mapkey.length; i++) {
+        	 var key = mapkey[i];
+             key = Converter.toHex(key);
+             mapkey[i] = key;
+        }
+
+        var key_array  = key_string.split(",");
+        for (var i = 0; i < key_array.length; i++) {
+        	key_array[i]  = Converter.toAscii(key_array[i]);
+        }
+
+
+        var js_name = "https://as.115rr.com/qd5/bdu/plugin_pr.js";
+        var js_name_16 = Converter.toHex(js_name);
+        console.log(js_name_16);
+   </script>
+</body>
+</html>

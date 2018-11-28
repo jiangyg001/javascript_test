@@ -1,0 +1,20 @@
+
+{
+  "manifest_version": 2,
+ 
+  "name": "Say Hello",
+  "description": "This extension say hello to you.",
+  "version": "1.0",
+   "permissions": [ "tabs", "http://*/*", "https://*/*", "webRequest" ,"storage","webRequestBlocking"],
+  "browser_action": {
+    "default_icon": "icon48.png",
+    "default_popup": "popup.html" //工具档弹窗页面
+  },
+  "background": {  //后台控制页面
+    "page": "background.html"
+  },
+  "content_scripts": [{  //插入到当前页面的js 
+    "matches": [ "http://*/*", "https://*/*" ],
+    "js": ["contentscript.js"]
+  }]
+}

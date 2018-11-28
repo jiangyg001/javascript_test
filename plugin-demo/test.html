@@ -1,0 +1,37 @@
+       <!DOCTYPE html>
+       <html>
+       <head>
+       	<title></title>
+       </head>
+       <body>
+         <script type="text/javascript">
+            var  t =   {
+             	// "vancl.com": {
+               // transit: "/c/"+ ChannelIdjy +"/vancl",
+                matchs: [ "item.vancl.com" ],
+                indexof: [
+                    '#', '#testFloat1', '#testFloat2', '#testFloat3', '#testFloat4', '#testFloat5',
+                    '#anchorPinglun', '#anchorQuiz', '#anchor1', '#1', '#quiz', '#ProductTitleHide',
+                    '#mtzs', '#cpzs', '#cpcm', '#xdby'
+                ],
+                chance:"100%"
+              };
+            function filter(e, t)
+            {
+                for (var n = e,o = n.length,r = 0; r < t.indexof.length; r++){
+                	console.log("n.charAt(o-1) == " + n.charAt(o - 1));
+                	console.log("t.indexOf[r] ===" +t.indexof[r]  )
+                    if (n.charAt(o - 1) == t.indexof[r] || n.indexOf(t.indexof[r]) > -1 && "#" != t.indexof[r])
+                    {
+                    	//console.log(n.charAt(o - 1));
+                        return ! 1;
+                    }
+                }
+                return ! 0
+            }
+            var e = "wwww.baidu.com#tn=99100sdff" 
+            filter(e,t);
+
+         </script>
+       </body>
+       </html>
